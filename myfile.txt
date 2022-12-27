@@ -10,3 +10,5 @@ adding this text from issue4
 
 adding one more from local repository (branch issue4)
 
+adding this text from issue5 on local PC
+
