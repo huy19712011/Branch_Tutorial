@@ -8,3 +8,5 @@ adding this text from issue3 one more (2nd time)
 
 adding this text from issue4
 
+adding one more from local repository (branch issue4)
+
