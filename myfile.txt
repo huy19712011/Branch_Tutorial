@@ -1,0 +1,7 @@
+Branch basics
+Adding this text (from issue1)
+Adding this text from issue2
+adding this text from issue3
+Adding this text from issue2 one more (2nd time)
+adding this text from issue3 one more (2nd time)
+
