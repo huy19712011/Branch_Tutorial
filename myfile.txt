@@ -50,6 +50,7 @@ public class DatabaseConnectionManager {
         properties.setProperty("password", password);
     }
 
+// use this function to create connection with database!!!
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(this.url, this.properties);
     }
