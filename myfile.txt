@@ -59,4 +59,9 @@ public class DatabaseConnectionManager {
 // fixed all bugs!
 
 
+// This class passed, close here
+-------------------------------------------------------------------------------------------------------------
+
+
+
 
