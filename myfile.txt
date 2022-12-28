@@ -22,5 +22,63 @@ adding text from issue2
 =======
 adding text from issue1
 
+-- Add this class from issue2
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.*;
+
+@WebServlet(name = "TestConnectionServlet", value = "/TestConnectionServlet")
+public class TestConnectionServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
+
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+
+        DatabaseConnectionManager dcm =
+                new DatabaseConnectionManager(
+                        "localhost:3306",
+                        "test",
+                        "root",
+                        "123456");
+
+        try {
+//            myConn = dcm.getConnection();
+//            try {
+//                Class.forName("com.mysql.cj.jdbc.Driver");
+//            } catch (ClassNotFoundException e) {
+//                throw new RuntimeException(e);
+//            }
+            myConn = dcm.getConnection();
+//            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?useSSL=false", "root", "123456");
+            System.out.println("Database connection successful");
+            out.println("Database connection successful");
+
+            myStmt = myConn.createStatement();
+
+            myRs = myStmt.executeQuery("select * from customer");
+
+            while (myRs.next()) {
+                System.out.println(myRs.getString("name"));
+                out.println(myRs.getString("name"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+}
 
