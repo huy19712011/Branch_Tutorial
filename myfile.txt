@@ -23,14 +23,16 @@ adding text from issue2
 adding text from issue1
 
 
+-- Add this class from issue1
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
--- Add this class from issue1
 public class DatabaseConnectionManager {
 
+// Need registerDriver here (bug: intellij: No suitable driver found for jdbc:mysql://localhost:3306/test...) 	
     static {
         try {
             DriverManager.registerDriver (new com.mysql.cj.jdbc.Driver());
