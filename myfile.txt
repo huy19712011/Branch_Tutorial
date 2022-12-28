@@ -22,6 +22,9 @@ adding text from issue2
 =======
 adding text from issue1
 
+
+-- Need DatabaseConnectionManager from issue1
+
 -- Add this class from issue2
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
