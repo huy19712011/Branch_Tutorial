@@ -23,4 +23,45 @@ adding text from issue2
 adding text from issue1
 
 
+-- Add this class from issue1
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
+public class DatabaseConnectionManager {
+
+// Need registerDriver here (bug: intellij: No suitable driver found for jdbc:mysql://localhost:3306/test...) 	
+    static {
+        try {
+            DriverManager.registerDriver (new com.mysql.cj.jdbc.Driver());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private final String url;
+    private final Properties properties;
+
+    public DatabaseConnectionManager(String host, String databaseName, String userName, String password) {
+        this.url = "jdbc:mysql://" + host + "/" + databaseName;
+        this.properties = new Properties();
+        properties.setProperty("user", userName);
+        properties.setProperty("password", password);
+    }
+
+// use this function to create connection with database!!!
+    public Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(this.url, this.properties);
+    }
+}
+
+// fixed all bugs!
+
+
+// This class passed, close here
+-------------------------------------------------------------------------------------------------------------
+
+
+
 
